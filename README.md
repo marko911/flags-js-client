@@ -11,7 +11,8 @@ npm i flags-js
     import Features from 'flags-js';
     const apiKey = "123456790";
 
-    const user = {
+    async function Example(){
+      const user = {
       key: "johnDoe@gmail.com", // must be unique
       attributes: {
         age: 25,
@@ -20,14 +21,16 @@ npm i flags-js
       }
     }
 
-    const features = Features.initializeClient(apiKey,user);
+    const features =  await Features.initializeClient(apiKey,user);
 
     // simple on/off flag
     const shouldShowNewModal = features.isEnabled('new-modal-flag-key');
     // string flag
     const newToolbarColor = features.getFlagVariation('new-toolbar-flag')
 
-- `initializeClient` makes api call to fetch all flags, so `await` it if necessary
+    }
+
+- `initializeClient` makes api call to fetch all flags
 - attributes are what is matched in user targeting / segments
 
 ### `isEnabled(flagKey): Boolean`
