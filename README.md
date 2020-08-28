@@ -2,7 +2,9 @@
 
 ### Install
 
-`npm i flags-js`
+```sh
+npm i flags-js
+```
 
 ## Usage
 
