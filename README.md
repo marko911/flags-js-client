@@ -1,2 +1,1 @@
-# flags-js-client
-Feature Flags JS Client
+# JS Client SDK for Feature Flags API

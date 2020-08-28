@@ -1,0 +1,19 @@
+{
+  "name": "flags-js",
+  "version": "1.0.0",
+  "description": "js client lib for feature flags api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marko911/flags-js-sdk.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marko911/flags-js-sdk/issues"
+  },
+  "homepage": "https://github.com/marko911/flags-js-sdk#readme"
+}
