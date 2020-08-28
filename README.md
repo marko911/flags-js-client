@@ -21,12 +21,12 @@ npm i flags-js
         }
       }
 
-    const features =  await Features.initializeClient(apiKey,user);
+      const features =  await Features.initializeClient(apiKey,user);
 
-    // simple on/off flag
-    const shouldShowNewModal = features.isEnabled('new-modal-flag-key');
-    // string flag
-    const newToolbarColor = features.getFlagVariation('new-toolbar-flag')
+      // simple on/off flag
+      const shouldShowNewModal = features.isEnabled('new-modal-flag-key');
+      // string flag
+      const newToolbarColor = features.getFlagVariation('new-toolbar-flag')
 
     }
 
