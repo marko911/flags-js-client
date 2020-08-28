@@ -38,6 +38,6 @@ async function Example() {
 
 Returns evaluation of flag for user. If flag is disabled or client initialization fails it returns false by default.
 
-### `getFlagVariation(flagKey): Boolean`
+### `getFlagVariation(flagKey): String`
 
 Returns name of variation if exists, otherwise null. Using this for flag keys associated with boolean flags will return "On" or "Off".
