@@ -13,13 +13,13 @@ npm i flags-js
 
     async function Example(){
       const user = {
-      key: "johnDoe@gmail.com", // must be unique
-      attributes: {
-        age: 25,
-        gender: "male",
-        sports: ["basketball","hockey"],
+        key: "johnDoe@gmail.com", // must be unique
+        attributes: {
+          age: 25,
+          gender: "male",
+          sports: ["basketball","hockey"],
+        }
       }
-    }
 
     const features =  await Features.initializeClient(apiKey,user);
 
