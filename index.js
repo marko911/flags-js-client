@@ -51,7 +51,7 @@ async function initializeClient(apiKey, user) {
   const body = JSON.stringify({ user: user });
   let flags;
   try {
-    const res = await fetch(url, { body, method: "POST" });
+    const res = await fetch(flagsUrl, { body, method: "POST" });
     if (res.status === 400) {
       console.error("invalid feature flag api key, setting all flags to off");
       flags = null;
