@@ -1,8 +1,11 @@
 import { ON_FLAG, OFF_FLAG, BASE_URL, TRUE_FLAG, FALSE_FLAG } from "./base-constants";
 
 class Features {
-  constructor(flags) {
+  constructor(flags, user, apiKey) {
+    this.user = user;
+    this.apiKey = apiKey;
     this.flags = flags;
+
     this.enabledMap = {};
     if (Array.isArray(flags)) {
       this.enabledMap = flags.reduce((acc, nxt) => {
@@ -30,10 +33,21 @@ class Features {
     }
     return null;
   }
+
+  async flagEvaluated(flagKey) {
+    const eval = this.flags.find(({ key }) => key === flagKey);
+    const recordUrl = `${BASE_URL}record/${apiKey}`;
+    const body = JSON.stringify(eval);
+    try {
+      const res = await fetch(recordUrl, { body, method: "POST" });
+    } catch (error) {
+      console.error("error recording eval", error);
+    }
+  }
 }
 
 async function initializeClient(apiKey, user) {
-  const url = `${BASE_URL}${apiKey}`;
+  const flagsUrl = `${BASE_URL}flags/${apiKey}`;
   const body = JSON.stringify({ user: user });
   let flags;
   try {
@@ -49,7 +63,7 @@ async function initializeClient(apiKey, user) {
     console.error("features will all evaluate to default");
     flags = null;
   }
-  return new Features(flags);
+  return new Features(flags, user, apiKey);
 }
 
 export default {
