@@ -23,6 +23,7 @@ class Features {
 
   isEnabled(key) {
     const result = this.enabledMap[key];
+    this.flagEvaluated(key);
     return Boolean(result); // in case bad key is sent
   }
 
