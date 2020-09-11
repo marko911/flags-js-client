@@ -35,15 +35,14 @@ class Features {
     return null;
   }
 
-  async flagEvaluated(flagKey) {
+  flagEvaluated(flagKey) {
     const eval = this.flags.find(({ key }) => key === flagKey);
     const recordUrl = `${BASE_URL}record/${this.apiKey}`;
     const body = JSON.stringify(eval);
-    try {
-      const res = await fetch(recordUrl, { body, method: "POST" });
-    } catch (error) {
-      console.error("error recording eval", error);
-    }
+
+    fetch(recordUrl, { body, method: "POST" })
+      .then((res) => console.log(res))
+      .catch((err) => console.error(err));
   }
 }
 
