@@ -1,17 +1,20 @@
-import { ON_FLAG, OFF_FLAG, BASE_URL } from "./constants";
+import { ON_FLAG, OFF_FLAG, BASE_URL, TRUE_FLAG, FALSE_FLAG } from "./base-constants";
 
 class Features {
   constructor(flags) {
     this.flags = flags;
+    this.enabledMap = {};
     if (Array.isArray(flags)) {
       this.enabledMap = flags.reduce((acc, nxt) => {
-        const isBoolFlag = [ON_FLAG, OFF_FLAG].includes(nxt.variation.name);
+        const isBoolFlag = [ON_FLAG, OFF_FLAG, TRUE_FLAG, FALSE_FLAG].includes(nxt.variation.name);
         if (isBoolFlag) {
-          const evalStatus = (nxt.flag.enabled && nxt.variation.name === ON_FLAG) || false;
+          const evalStatus =
+            (nxt.flag.enabled && [ON_FLAG, TRUE_FLAG].includes(nxt.variation.name)) || false;
           acc[nxt.flag.key] = evalStatus;
         }
         return acc;
       }, {});
+      console.log({ thisEnabledMap: this.enabledMap });
     }
   }
 
