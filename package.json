@@ -1,6 +1,6 @@
 {
   "name": "flags-js",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "js client lib for feature flags api",
   "main": "index.js",
   "scripts": {
