@@ -36,9 +36,9 @@ class Features {
   }
 
   flagEvaluated(flagKey) {
-    const eval = this.flags.find(({ key }) => key === flagKey);
+    const flageval = this.flags.find(({ key }) => key === flagKey);
     const recordUrl = `${BASE_URL}record/${this.apiKey}`;
-    const body = JSON.stringify(eval);
+    const body = JSON.stringify(flageval);
 
     fetch(recordUrl, { body, method: "POST" })
       .then((res) => console.log(res))
