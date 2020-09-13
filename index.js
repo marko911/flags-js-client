@@ -41,7 +41,7 @@ class Features {
     const body = JSON.stringify(flageval);
 
     fetch(recordUrl, { body, method: "POST" })
-      .then((res) => console.log(res))
+      .then(() => {})
       .catch((err) => console.error(err));
   }
 }
